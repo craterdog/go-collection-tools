@@ -14,8 +14,8 @@ package main
 
 import (
 	fmt "fmt"
-	col "github.com/craterdog/go-collection-framework/v3"
-	not "github.com/craterdog/go-collection-framework/v3/cdcn"
+	cdc "github.com/craterdog/go-collection-framework/v3/cdcn"
+	col "github.com/craterdog/go-collection-framework/v3/collection"
 	osx "os"
 )
 
@@ -35,7 +35,7 @@ func main() {
 		panic(err)
 	}
 	var source = string(bytes)
-	var parser = not.Parser().Make()
+	var parser = cdc.Parser().Make()
 	var collection = parser.ParseSource(source)
 
 	// Reformat the collection file.

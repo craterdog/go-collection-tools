@@ -14,7 +14,7 @@ package main
 
 import (
 	fmt "fmt"
-	not "github.com/craterdog/go-collection-framework/v3/cdcn"
+	cdc "github.com/craterdog/go-collection-framework/v3/cdcn"
 	osx "os"
 )
 
@@ -34,6 +34,6 @@ func main() {
 		panic(err)
 	}
 	var source = string(bytes)
-	var parser = not.Parser().Make()
+	var parser = cdc.Parser().Make()
 	parser.ParseSource(source)
 }
