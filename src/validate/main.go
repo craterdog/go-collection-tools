@@ -28,7 +28,7 @@ func main() {
 	}
 	var collectionFile = osx.Args[1]
 
-	// Validate the collection file.
+	// Parse the collection file.
 	var bytes, err = osx.ReadFile(collectionFile)
 	if err != nil {
 		panic(err)
@@ -36,4 +36,6 @@ func main() {
 	var source = string(bytes)
 	var parser = cdc.Parser().Make()
 	parser.ParseSource(source)
+
+	// No validation currently required.
 }

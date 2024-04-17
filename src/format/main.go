@@ -38,6 +38,8 @@ func main() {
 	var parser = cdc.Parser().Make()
 	var collection = parser.ParseSource(source)
 
+	// No validation currently required.
+
 	// Reformat the collection file.
 	var formatter = col.Formatter().Make()
 	source = formatter.FormatCollection(collection)
