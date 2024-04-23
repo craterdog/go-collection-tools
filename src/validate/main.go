@@ -14,7 +14,7 @@ package main
 
 import (
 	fmt "fmt"
-	cdc "github.com/craterdog/go-collection-framework/v3/cdcn"
+	col "github.com/craterdog/go-collection-framework/v4"
 	osx "os"
 )
 
@@ -33,9 +33,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	var notation = col.Notation().Make()
 	var source = string(bytes)
-	var parser = cdc.Parser().Make()
-	parser.ParseSource(source)
+	notation.ParseSource(source)
 
 	// No validation currently required.
 }
