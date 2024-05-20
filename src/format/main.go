@@ -33,7 +33,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	var notation = col.Notation().Make()
+	var notation = col.CDCN()
 	var source = string(bytes)
 	var collection = notation.ParseSource(source)
 
