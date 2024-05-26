@@ -14,35 +14,50 @@ package main
 
 import (
 	fmt "fmt"
-	col "github.com/craterdog/go-collection-framework/v4"
+	cdc "github.com/craterdog/go-collection-framework/v4/cdcn"
+	col "github.com/craterdog/go-collection-framework/v4/collection"
 	osx "os"
 )
 
-// MAIN PROGRAM
-
 func main() {
-	// Validate the commandline arguments.
+	var collectionFile = retrieveArguments()
+	var collection = parseCollection(collectionFile)
+	validateCollection(collection)
+	reformatCollection(collectionFile, collection)
+}
+
+func retrieveArguments() (collectionFile string) {
 	if len(osx.Args) < 2 {
 		fmt.Println("Usage: format <collection-file>")
 		return
 	}
-	var collectionFile = osx.Args[1]
+	collectionFile = osx.Args[1]
+	return collectionFile
+}
 
-	// Parse the collection file.
+func parseCollection(collectionFile string) col.Collection {
 	var bytes, err = osx.ReadFile(collectionFile)
 	if err != nil {
 		panic(err)
 	}
-	var notation = col.CDCN()
 	var source = string(bytes)
-	var collection = notation.ParseSource(source)
+	var parser = cdc.Parser().Make()
+	var collection = parser.ParseSource(source)
+	return collection
+}
 
+func validateCollection(collection col.Collection) {
 	// No validation currently required.
+}
 
-	// Reformat the collection file.
-	source = notation.FormatCollection(collection)
-	bytes = []byte(source)
-	err = osx.WriteFile(collectionFile, bytes, 0644)
+func reformatCollection(
+	collectionFile string,
+	collection col.Collection,
+) {
+	var formatter = cdc.Formatter().Make()
+	var source = formatter.FormatCollection(collection)
+	var bytes = []byte(source)
+	var err = osx.WriteFile(collectionFile, bytes, 0644)
 	if err != nil {
 		panic(err)
 	}
