@@ -28,7 +28,7 @@ func main() {
 func retrieveArguments() (collectionFile string) {
 	if len(osx.Args) < 2 {
 		fmt.Println("Usage: validate <collection-file>")
-		return
+		osx.Exit(1)
 	}
 	collectionFile = osx.Args[1]
 	return collectionFile
