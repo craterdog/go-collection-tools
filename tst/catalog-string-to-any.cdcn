@@ -7,13 +7,13 @@
     "rune": '☺'
     "string": "Hello World!"
     "empty": [
-        [ ](array)
-        [:](map)
-    ](array)
+        [ ](Array)
+        [:](Map)
+    ](Array)
     "array": [
         1
         2
         3
-    ](array)
-    "map": ["alpha": 1](map)
+    ](Array)
+    "map": ["alpha": 1](Map)
 ](Catalog)

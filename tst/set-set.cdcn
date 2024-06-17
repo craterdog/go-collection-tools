@@ -1,19 +1,5 @@
 [
     [
-        [
-            1
-            2
-            3
-        ](array)
-        true
-        (1.0+1.0i)
-        0.125
-        42
-        '☺'
-        "Hello World!"
-        0xa
-    ](Set)
-    [
         false
         (0.0+0.0i)
         0.0
@@ -22,5 +8,19 @@
         ""
         "array"
         0x0
+    ](Set)
+    [
+        true
+        [
+            1
+            2
+            3
+        ](Array)
+        (1.0+1.0i)
+        0.125
+        42
+        '☺'
+        "Hello World!"
+        0xa
     ](Set)
 ](Set)

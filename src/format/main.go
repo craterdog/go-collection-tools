@@ -15,7 +15,6 @@ package main
 import (
 	fmt "fmt"
 	cdc "github.com/craterdog/go-collection-framework/v4/cdcn"
-	col "github.com/craterdog/go-collection-framework/v4/collection"
 	osx "os"
 )
 
@@ -35,7 +34,7 @@ func retrieveArguments() (collectionFile string) {
 	return collectionFile
 }
 
-func parseCollection(collectionFile string) col.Collection {
+func parseCollection(collectionFile string) any {
 	var bytes, err = osx.ReadFile(collectionFile)
 	if err != nil {
 		panic(err)
@@ -46,16 +45,16 @@ func parseCollection(collectionFile string) col.Collection {
 	return collection
 }
 
-func validateCollection(collection col.Collection) {
+func validateCollection(collection any) {
 	// No validation currently required.
 }
 
 func reformatCollection(
 	collectionFile string,
-	collection col.Collection,
+	collection any,
 ) {
 	var formatter = cdc.Formatter().Make()
-	var source = formatter.FormatCollection(collection)
+	var source = formatter.FormatValue(collection)
 	var bytes = []byte(source)
 	var err = osx.WriteFile(collectionFile, bytes, 0644)
 	if err != nil {

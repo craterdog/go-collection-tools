@@ -10,10 +10,10 @@
         1
         2
         3
-    ](array)
+    ](Array)
     [
-        [ ](array)
-        [:](map)
-    ](array)
-    ["alpha": 1](map)
+        [ ](Array)
+        [:](Map)
+    ](Array)
+    ["alpha": 1](Map)
 ](Array)
