@@ -1,4 +1,5 @@
 echo "Compiling the following tools:"
+rm -rf ./bin
 mkdir -p ./bin/
 echo "	version"
 go build -o ./bin/ ./src/version
