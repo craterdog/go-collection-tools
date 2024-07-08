@@ -1,10 +1,10 @@
 echo "Compiling the following tools:"
 rm -rf ./bin
 mkdir -p ./bin/
-echo "	version"
+echo "    version"
 go build -o ./bin/ ./src/version
-echo "	validate"
+echo "    validate"
 go build -o ./bin/ ./src/validate
-echo "	format"
+echo "    format"
 go build -o ./bin/ ./src/format
 echo "Done."
